@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextBlock, ImageBlock, ButtonBlock } from './blocks';
+import { TextBlock, ImageBlock, ButtonBlock, TableBlock } from './blocks';
 import { useBuilder } from '../contexts/BuilderContext';
 
 export default function Canvas() {
@@ -17,6 +17,15 @@ export default function Canvas() {
             ? 'Double click to edit this text'
             : type === 'button'
             ? 'Click Me'
+            : type === 'table'
+            ? {
+                headers: ['Header 1', 'Header 2', 'Header 3'],
+                rows: [
+                  ['Cell 1', 'Cell 2', 'Cell 3'],
+                  ['Cell 4', 'Cell 5', 'Cell 6']
+                ],
+                style: 'simple'
+              }
             : 'https://source.unsplash.com/featured/800x600?nature',
       },
     };
@@ -45,6 +54,8 @@ export default function Canvas() {
         return <ImageBlock key={id} {...props} />;
       case 'button':
         return <ButtonBlock key={id} {...props} />;
+      case 'table':
+        return <TableBlock key={id} {...props} />;
       default:
         return null;
     }

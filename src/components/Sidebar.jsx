@@ -1,7 +1,8 @@
 const blocks = [
   { type: 'text', label: 'Text' },
   { type: 'image', label: 'Image' },
-  { type: 'button', label: 'Button' }
+  { type: 'button', label: 'Button' },
+  { type: 'table', label: 'Table' }
 ];
 
 export default function Sidebar() {
